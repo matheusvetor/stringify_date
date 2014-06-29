@@ -24,7 +24,7 @@ and we want to handle it by using a String object instead:
 ```ruby
 class Product < ActiveRecord::Base
   # the format will be used to format date and datetime as string
-  stringfy :validity, format: '%Y-%m-%d'
+  stringify :validity, format: '%Y-%m-%d'
 
 end
 ```
