@@ -24,13 +24,25 @@ and we want to handle it by using a String object instead:
 ```ruby
 class Product < ActiveRecord::Base
   # the format will be used to format date and datetime as string
-  stringify :validity, format: '%Y-%m-%d'
+  stringify :validity, format: '%d/%m/%Y'
 
 end
 ```
 
 Now each Product object will also have attributes called ```validity_string``` and ```validity_string=```
 to use date and datetime as string.
+
+So
+
+```ruby
+product = Product.new validity: Date.new(2001,2,3)
+```
+
+We can use now ```_string```
+```ruby
+product.validity_string # => '03/02/2001'
+```
+
 
 ## Contributing
 
