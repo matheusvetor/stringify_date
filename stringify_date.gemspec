@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'stringfy_date/version'
+require 'stringify_date/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "stringfy_date"
-  spec.version       = StringfyDate::VERSION
+  spec.name          = "stringify_date"
+  spec.version       = StringifyDate::VERSION
   spec.authors       = ["Rute Passos", "Matheus Oliveira"]
   spec.email         = ["matheus.vetor@gmail.com"]
   spec.summary       = %q{Parser for string an date/datetime}
