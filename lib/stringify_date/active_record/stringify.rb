@@ -1,3 +1,4 @@
+require 'active_record'
 require 'active_support/concern'
 require 'active_support/core_ext/array/extract_options'
 
@@ -20,12 +21,26 @@ module StringifyDate
           end
 
           define_method "#{name}=" do |value|
-            type = self.class.columns_hash[column_name].type
-            types = { datetime: DateTime, date: Date }
-            if value && type.in?([:date, :datetime])
-              self.send("#{column_name}=", types[type].send('parse', value))
-            end
+            self.send(
+              "#{column_name}=", 
+              begin
+                if value.present?
+                  begin
+                    Time.parse(value)
+                  rescue ArgumentError
+                    instance_variable_set("@#{name}_invalid", true)
+                  end
+                else
+                  ''
+                end
+              end
+            )
           end
+
+          define_method "validate_#{name}" do
+            errors.add(name.to_sym, I18n.t('errors.invalid')) if instance_variable_get("@#{name}_invalid")
+          end
+
         end
       end
     end
