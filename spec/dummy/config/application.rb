@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "stringfy_date"
+require "stringify_date"
 
 module Dummy
   class Application < Rails::Application
