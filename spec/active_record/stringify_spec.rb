@@ -14,7 +14,7 @@ describe StringifyDate::ActiveRecord::Stringify do
     expect(TestDate).to respond_to(:stringify)
   end
 
-  it 'should respond to validity_string and validity_string=' do
+  it 'should respond to _string and _string=' do
     expect(test_date).to respond_to(:start_at_string)
     expect(test_date).to respond_to(:start_at_string=)
     expect(test_date).to respond_to(:end_at_string)
