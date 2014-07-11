@@ -41,6 +41,8 @@ module StringifyDate
             errors.add(name.to_sym, I18n.t('errors.invalid')) if instance_variable_get("@#{name}_invalid")
           end
 
+          self.send(:validate, :"validate_#{name}")
+
         end
       end
     end
