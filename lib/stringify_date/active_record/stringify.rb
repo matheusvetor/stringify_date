@@ -23,7 +23,6 @@ module StringifyDate
           define_method "#{name}=" do |value|
             self.send(
               "#{column_name}=", 
-              begin
                 if value.present?
                   begin
                     Time.parse(value)
@@ -33,7 +32,6 @@ module StringifyDate
                 else
                   ''
                 end
-              end
             )
           end
 
