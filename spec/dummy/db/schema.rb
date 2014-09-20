@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629010823) do
+ActiveRecord::Schema.define(version: 20140920052550) do
 
   create_table "test_dates", force: true do |t|
     t.date     "start_at"
     t.datetime "end_at"
+    t.date     "published_at"
   end
 
 end

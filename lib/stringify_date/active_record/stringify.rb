@@ -13,16 +13,18 @@ module StringifyDate
 
           options = args.extract_options!
 
+          format = options[:format] || '%Y-%m-%d'
+
           name = [column_name, 'string'].join('_')
 
           define_method name do
             date = send(column_name)
-            date.strftime(options[:format]) unless date.nil?
+            date.strftime(format) unless date.nil?
           end
 
           define_method "#{name}=" do |value|
             self.send(
-              "#{column_name}=", 
+              "#{column_name}=",
                 if value.present?
                   begin
                     Time.parse(value)
