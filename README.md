@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/matheusvetor/stringify_date.svg?branch=master)](https://travis-ci.org/matheusvetor/stringify_date)
+
 # StringifyDate
 
 This gem provides a _string and _string= to date and datetime attributes.
