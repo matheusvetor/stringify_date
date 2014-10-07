@@ -35,6 +35,12 @@ describe StringifyDate::ActiveRecord::Stringify do
     expect(test_date.valid?).to be(false)
   end
 
+  it 'should real attribute be nil when parse invalid date' do
+    test_date.start_at_string = 'invalid'
+
+    expect(test_date.start_at).to be(nil)
+  end
+
   it 'should be valid when parse empty string' do
     test_date.start_at_string = ''
 

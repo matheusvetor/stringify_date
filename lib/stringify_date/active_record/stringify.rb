@@ -30,9 +30,10 @@ module StringifyDate
                     Time.parse(value)
                   rescue ArgumentError
                     instance_variable_set("@#{name}_invalid", true)
+                    nil
                   end
                 else
-                  ''
+                  nil
                 end
             )
           end
