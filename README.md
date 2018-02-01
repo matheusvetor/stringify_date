@@ -41,6 +41,7 @@ product = Product.new validity: Date.new(2001,2,3)
 ```
 
 We can use now ```_string```
+
 ```ruby
 product.validity_string # => '03/02/2001'
 ```

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe StringifyDate::ActiveRecord::Stringify do
-
   let(:test_date) do
     TestDate.new(start_at: Date.today, end_at: DateTime.now)
   end
@@ -23,7 +22,7 @@ describe StringifyDate::ActiveRecord::Stringify do
     expect(test_date).to respond_to(:published_at_string=)
   end
 
-  it "should set start_at_string to 22/10/2012 when start_at 2012-10-22 and stringify format is '%d/%m/%Y'" do
+  it 'should set start_at_string to 22/10/2012 when start_at 2012-10-22 and stringify format is "%d/%m/%Y"' do
     test_date.start_at = Date.new(2012, 10, 22)
 
     expect(test_date.start_at_string).to eq('22/10/2012')
@@ -47,14 +46,14 @@ describe StringifyDate::ActiveRecord::Stringify do
     expect(test_date.valid?).to be(true)
   end
 
-  it "should set start_at_string to 22/10/2012 when start_at 2001-02-03 and stringify format is '%d/%m/%Y %H:%M:%S'" do
-    test_date.end_at = DateTime.new(2001,2,3)
+  it 'should set start_at_string to 22/10/2012 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
+    test_date.end_at = DateTime.new(2001, 2, 3)
 
     expect(test_date.end_at_string).to eq('03/02/2001 00:00:00')
   end
 
-  it "should set published_at_string to 2001-02-03 when published_at 2001-02-03 and stringify format is not passing" do
-    test_date.published_at = DateTime.new(2001,2,3)
+  it 'should set published_at_string to 2001-02-03 when published_at 2001-02-03 and stringify format is not passing' do
+    test_date.published_at = Date.new(2001, 2, 3)
 
     expect(test_date.published_at_string).to eq('2001-02-03')
   end
