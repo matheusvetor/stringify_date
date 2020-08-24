@@ -46,13 +46,19 @@ describe StringifyDate::ActiveRecord::Stringify do
     expect(test_date.valid?).to be(true)
   end
 
-  it 'should set start_at_string to 22/10/2012 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
+  it 'sets start_at_string to 22/10/2012 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
     test_date.end_at = DateTime.new(2001, 2, 3)
 
     expect(test_date.end_at_string).to eq('03/02/2001 00:00:00')
   end
 
-  it 'should set published_at_string to 2001-02-03 when published_at 2001-02-03 and stringify format is not passing' do
+  it 'sets start_at_string to 31/10/2002 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
+    test_date.end_at = Time.new(2002, 10, 31, 2, 2, 2)
+
+    expect(test_date.end_at_string).to eq('31/10/2002 02:02:02')
+  end
+
+  it 'sets published_at_string to 2001-02-03 when published_at 2001-02-03 and stringify format is not passing' do
     test_date.published_at = Date.new(2001, 2, 3)
 
     expect(test_date.published_at_string).to eq('2001-02-03')
