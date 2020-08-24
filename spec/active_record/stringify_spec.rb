@@ -47,13 +47,13 @@ describe StringifyDate::ActiveRecord::Stringify do
   end
 
   it 'sets start_at_string to 22/10/2012 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
-    test_date.end_at = DateTime.new(2001, 2, 3)
+    test_date.end_at = Time.new(2001, 2, 3).in_time_zone
 
     expect(test_date.end_at_string).to eq('03/02/2001 00:00:00')
   end
 
   it 'sets start_at_string to 31/10/2002 when start_at 2001-02-03 and stringify format is "%d/%m/%Y %H:%M:%S"' do
-    test_date.end_at = Time.new(2002, 10, 31, 2, 2, 2)
+    test_date.end_at = Time.new(2002, 10, 31, 2, 2, 2).in_time_zone
 
     expect(test_date.end_at_string).to eq('31/10/2002 02:02:02')
   end
