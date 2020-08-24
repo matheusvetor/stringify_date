@@ -46,6 +46,18 @@ We can use now ```_string```
 product.validity_string # => '03/02/2001'
 ```
 
+## Publishing
+
+Bundle the gem
+
+```
+gem rake build
+```
+
+Push the package
+```
+gem push pkg/stringify_date-x.x.x.gem
+```
 
 ## Contributing
 
