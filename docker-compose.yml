@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  gem:
+    build: .
+    command: bundle exec rspec
+    volumes:
+      - bundle_cache:/bundle
+      - .:/app
+
+volumes:
+  bundle_cache:

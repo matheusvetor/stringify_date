@@ -23,12 +23,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activesupport', '>= 4.2'
-  spec.add_dependency 'railties',      '>= 4.2'
+  spec.add_dependency 'activesupport', '>= 5.0'
+  spec.add_dependency 'railties',      '>= 5.0'
 
   spec.add_development_dependency 'bundler', '>= 2'
   spec.add_development_dependency 'rake', '13.0.1'
   spec.add_development_dependency 'rails'
   spec.add_development_dependency 'rspec-rails', '4.0.1'
   spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'tzinfo-data'
+  spec.add_development_dependency 'byebug'
 end

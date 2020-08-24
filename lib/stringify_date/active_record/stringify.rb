@@ -11,7 +11,7 @@ module StringifyDate
         return nil unless value.present?
 
         begin
-          Time.strptime(value, format).in_time_zone
+          Time.zone.strptime(value, format)
         rescue ArgumentError
           instance_variable_set("@#{name}_invalid", true)
           nil
